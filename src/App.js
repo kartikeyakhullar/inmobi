@@ -3,14 +3,15 @@ import { Gift, Sparkles, RotateCcw, Trophy } from 'lucide-react';
 
 const GRID_SIZE = 6;
 const CHOCOLATE_TYPES = [
-  { id: 'milk', color: '#8B4513', name: 'Milk Chocolate' },
-  { id: 'dark', color: '#3E2723', name: 'Dark Chocolate' },
-  { id: 'cookies', color: '#F5E6D3', dots: true, name: 'Cookies & Cream' },
-  { id: 'almond', color: '#CD853F', name: 'Almond' }
+  { id: 'milk', color: '#8B4513', name: 'Milk Chocolate Kiss', wrapper: '#C0C0C0' },
+  { id: 'dark', color: '#3E2723', name: 'Dark Chocolate Kiss', wrapper: '#4A4A4A' },
+  { id: 'cookies', color: '#F5E6D3', name: 'Cookies & Cream Kiss', wrapper: '#FFFFFF', stripes: true },
+  { id: 'caramel', color: '#D2691E', name: 'Caramel Kiss', wrapper: '#FFD700' },
+  { id: 'almond', color: '#CD853F', name: 'Almond Kiss', wrapper: '#B87333' }
 ];
 
 const MATCHES_NEEDED = 3;
-const AMAZON_LINK = 'https://www.amazon.com/s?k=hersheys+chocolate';
+const AMAZON_LINK = 'https://www.amazon.in/s?k=hersheys+kisses+chocolate';
 
 function App() {
   const [grid, setGrid] = useState([]);
@@ -292,132 +293,174 @@ function App() {
         overflow: 'hidden',
         pointerEvents: 'none'
       }}>
-        {/* Diyas (oil lamps) at bottom corners */}
+        {/* Large Diyas (oil lamps) at bottom corners */}
         <div style={{
           position: 'absolute',
-          bottom: '20px',
-          left: '20px',
-          fontSize: '48px',
+          bottom: '30px',
+          left: '30px',
+          fontSize: '72px',
           animation: 'flicker 2s infinite',
-          filter: 'drop-shadow(0 0 10px rgba(255, 165, 0, 0.8))'
+          filter: 'drop-shadow(0 0 20px rgba(255, 165, 0, 1)) drop-shadow(0 0 40px rgba(255, 140, 0, 0.6))',
+          zIndex: 2
         }}>🪔</div>
         <div style={{
           position: 'absolute',
-          bottom: '20px',
-          right: '20px',
-          fontSize: '48px',
+          bottom: '30px',
+          right: '30px',
+          fontSize: '72px',
           animation: 'flicker 2.5s infinite',
-          filter: 'drop-shadow(0 0 10px rgba(255, 165, 0, 0.8))'
+          filter: 'drop-shadow(0 0 20px rgba(255, 165, 0, 1)) drop-shadow(0 0 40px rgba(255, 140, 0, 0.6))',
+          zIndex: 2
         }}>🪔</div>
         
-        {/* More diyas scattered around */}
+        {/* More prominent diyas scattered around */}
         <div style={{
           position: 'absolute',
-          top: '15%',
-          left: '10%',
-          fontSize: '36px',
+          top: '12%',
+          left: '8%',
+          fontSize: '56px',
           animation: 'flicker 3s infinite',
-          filter: 'drop-shadow(0 0 8px rgba(255, 165, 0, 0.6))'
+          filter: 'drop-shadow(0 0 15px rgba(255, 165, 0, 0.9))',
+          zIndex: 2
         }}>🪔</div>
         <div style={{
           position: 'absolute',
-          top: '20%',
-          right: '15%',
-          fontSize: '36px',
+          top: '18%',
+          right: '12%',
+          fontSize: '56px',
           animation: 'flicker 2.3s infinite',
-          filter: 'drop-shadow(0 0 8px rgba(255, 165, 0, 0.6))'
+          filter: 'drop-shadow(0 0 15px rgba(255, 165, 0, 0.9))',
+          zIndex: 2
+        }}>🪔</div>
+        <div style={{
+          position: 'absolute',
+          bottom: '35%',
+          left: '5%',
+          fontSize: '48px',
+          animation: 'flicker 2.7s infinite',
+          filter: 'drop-shadow(0 0 12px rgba(255, 165, 0, 0.8))',
+          zIndex: 2
+        }}>🪔</div>
+        <div style={{
+          position: 'absolute',
+          bottom: '40%',
+          right: '7%',
+          fontSize: '48px',
+          animation: 'flicker 3.2s infinite',
+          filter: 'drop-shadow(0 0 12px rgba(255, 165, 0, 0.8))',
+          zIndex: 2
         }}>🪔</div>
         
-        {/* Sparkles/Stars */}
-        {[...Array(15)].map((_, i) => (
+        {/* Larger, more visible Sparkles/Stars */}
+        {[...Array(25)].map((_, i) => (
           <div
             key={`sparkle-${i}`}
             style={{
               position: 'absolute',
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
-              fontSize: `${12 + Math.random() * 20}px`,
-              animation: `sparkle ${2 + Math.random() * 3}s infinite`,
-              animationDelay: `${Math.random() * 2}s`
+              fontSize: `${20 + Math.random() * 30}px`,
+              animation: `sparkle ${1.5 + Math.random() * 2.5}s infinite`,
+              animationDelay: `${Math.random() * 2}s`,
+              filter: 'drop-shadow(0 0 8px rgba(255, 215, 0, 0.8))'
             }}
           >✨</div>
         ))}
         
-        {/* Firework effects */}
-        {[...Array(8)].map((_, i) => (
+        {/* More prominent Firework effects */}
+        {[...Array(12)].map((_, i) => (
           <div
             key={`firework-${i}`}
             style={{
               position: 'absolute',
               bottom: '0',
-              left: `${10 + i * 12}%`,
-              fontSize: '24px',
-              animation: `firework ${3 + Math.random() * 2}s infinite`,
-              animationDelay: `${Math.random() * 3}s`
+              left: `${5 + i * 8}%`,
+              fontSize: '36px',
+              animation: `firework ${2.5 + Math.random() * 2}s infinite`,
+              animationDelay: `${Math.random() * 3}s`,
+              filter: 'drop-shadow(0 0 10px rgba(255, 100, 100, 0.8))'
             }}
           >🎆</div>
         ))}
         
-        {/* Rangoli pattern corners */}
+        {/* Larger Rangoli pattern corners */}
         <div style={{
           position: 'absolute',
-          top: '10px',
-          left: '10px',
-          width: '80px',
-          height: '80px',
-          background: 'radial-gradient(circle, rgba(255,165,0,0.3) 0%, transparent 70%)',
+          top: '15px',
+          left: '15px',
+          width: '120px',
+          height: '120px',
+          background: 'radial-gradient(circle, rgba(255,165,0,0.5) 0%, rgba(255,140,0,0.3) 50%, transparent 70%)',
           borderRadius: '50%',
-          border: '3px solid rgba(255,215,0,0.4)',
+          border: '4px solid rgba(255,215,0,0.6)',
+          boxShadow: '0 0 30px rgba(255,165,0,0.4)',
+          zIndex: 2
         }} />
         <div style={{
           position: 'absolute',
-          top: '10px',
-          right: '10px',
-          width: '80px',
-          height: '80px',
-          background: 'radial-gradient(circle, rgba(255,165,0,0.3) 0%, transparent 70%)',
+          top: '15px',
+          right: '15px',
+          width: '120px',
+          height: '120px',
+          background: 'radial-gradient(circle, rgba(255,165,0,0.5) 0%, rgba(255,140,0,0.3) 50%, transparent 70%)',
           borderRadius: '50%',
-          border: '3px solid rgba(255,215,0,0.4)',
+          border: '4px solid rgba(255,215,0,0.6)',
+          boxShadow: '0 0 30px rgba(255,165,0,0.4)',
+          zIndex: 2
         }} />
         
-        {/* Floating lanterns */}
+        {/* Larger Floating lanterns */}
         <div style={{
           position: 'absolute',
-          top: '10%',
-          left: '5%',
-          fontSize: '40px',
+          top: '8%',
+          left: '4%',
+          fontSize: '56px',
           animation: 'float 4s ease-in-out infinite',
-          filter: 'drop-shadow(0 0 15px rgba(255, 200, 0, 0.6))'
+          filter: 'drop-shadow(0 0 20px rgba(255, 200, 0, 0.9))',
+          zIndex: 2
         }}>🏮</div>
         <div style={{
           position: 'absolute',
-          top: '15%',
-          right: '8%',
-          fontSize: '35px',
+          top: '12%',
+          right: '6%',
+          fontSize: '48px',
           animation: 'float 5s ease-in-out infinite',
           animationDelay: '1s',
-          filter: 'drop-shadow(0 0 15px rgba(255, 200, 0, 0.6))'
+          filter: 'drop-shadow(0 0 20px rgba(255, 200, 0, 0.9))',
+          zIndex: 2
         }}>🏮</div>
         <div style={{
           position: 'absolute',
-          bottom: '30%',
-          left: '3%',
-          fontSize: '32px',
+          bottom: '28%',
+          left: '2%',
+          fontSize: '44px',
           animation: 'float 4.5s ease-in-out infinite',
           animationDelay: '2s',
-          filter: 'drop-shadow(0 0 15px rgba(255, 200, 0, 0.6))'
+          filter: 'drop-shadow(0 0 18px rgba(255, 200, 0, 0.8))',
+          zIndex: 2
+        }}>🏮</div>
+        <div style={{
+          position: 'absolute',
+          bottom: '32%',
+          right: '4%',
+          fontSize: '44px',
+          animation: 'float 4.8s ease-in-out infinite',
+          animationDelay: '1.5s',
+          filter: 'drop-shadow(0 0 18px rgba(255, 200, 0, 0.8))',
+          zIndex: 2
         }}>🏮</div>
         
-        {/* Glowing overlay */}
+        {/* Enhanced glowing overlay */}
         <div style={{
           position: 'absolute',
           top: 0,
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundImage: `radial-gradient(circle at 20% 30%, rgba(255,165,0,0.15) 0%, transparent 50%),
-                            radial-gradient(circle at 80% 70%, rgba(255,215,0,0.15) 0%, transparent 50%),
-                            radial-gradient(circle at 50% 50%, rgba(255,140,0,0.1) 0%, transparent 60%)`,
+          backgroundImage: `radial-gradient(circle at 20% 30%, rgba(255,165,0,0.25) 0%, transparent 50%),
+                            radial-gradient(circle at 80% 70%, rgba(255,215,0,0.25) 0%, transparent 50%),
+                            radial-gradient(circle at 50% 50%, rgba(255,140,0,0.15) 0%, transparent 60%),
+                            radial-gradient(circle at 10% 80%, rgba(255,100,0,0.2) 0%, transparent 40%)`,
         }} />
       </div>
 
@@ -430,13 +473,18 @@ function App() {
       }}>
         {/* Diwali greeting */}
         <div style={{
-          fontSize: 'clamp(0.9rem, 2.5vw, 1.1rem)',
+          fontSize: 'clamp(1.1rem, 3vw, 1.4rem)',
           color: '#FFD700',
-          textShadow: '2px 2px 4px rgba(0,0,0,0.4)',
-          marginBottom: '5px',
-          fontWeight: '600',
-          letterSpacing: '1px',
-          animation: 'sparkle 2s infinite'
+          textShadow: '2px 2px 4px rgba(0,0,0,0.5), 0 0 20px rgba(255, 215, 0, 0.8)',
+          marginBottom: '8px',
+          fontWeight: '700',
+          letterSpacing: '2px',
+          animation: 'pulse 2s infinite',
+          background: 'linear-gradient(90deg, #FFD700, #FFA500, #FFD700)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text',
+          filter: 'drop-shadow(0 0 10px rgba(255, 215, 0, 0.6))'
         }}>
           ✨ Happy Diwali! ✨
         </div>
@@ -533,49 +581,128 @@ function App() {
                   width: '100%',
                   height: '100%',
                   aspectRatio: '1',
-                  background: cell.type.color,
-                  borderRadius: '50%',
                   cursor: isAnimating ? 'not-allowed' : 'pointer',
                   transition: 'all 0.3s ease',
                   transform: selectedCell?.row === rowIndex && selectedCell?.col === colIndex 
-                    ? 'scale(1.15)' 
+                    ? 'scale(1.15) rotate(5deg)' 
                     : 'scale(1)',
-                  boxShadow: selectedCell?.row === rowIndex && selectedCell?.col === colIndex
-                    ? '0 0 25px rgba(255,255,255,0.9), inset 0 0 20px rgba(255,255,255,0.3)'
-                    : '0 4px 8px rgba(0,0,0,0.3)',
-                  border: selectedCell?.row === rowIndex && selectedCell?.col === colIndex
-                    ? '4px solid #FFD700'
-                    : '3px solid rgba(255,255,255,0.4)',
                   position: 'relative',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   animation: 'fadeIn 0.3s ease',
-                  opacity: isAnimating ? 0.7 : 1
+                  opacity: isAnimating ? 0.7 : 1,
+                  filter: selectedCell?.row === rowIndex && selectedCell?.col === colIndex
+                    ? 'drop-shadow(0 0 15px rgba(255,215,0,0.8))'
+                    : 'drop-shadow(0 4px 6px rgba(0,0,0,0.3))'
                 }}
               >
-                {cell.type.dots && (
+                {/* Hershey's Kiss Shape */}
+                <div style={{
+                  position: 'relative',
+                  width: '90%',
+                  height: '90%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'flex-end'
+                }}>
+                  {/* Paper strip (plume) on top */}
                   <div style={{
                     position: 'absolute',
-                    inset: 0,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: 'clamp(4px, 1vw, 8px)'
+                    top: '0',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    width: '20%',
+                    height: '25%',
+                    background: cell.type.wrapper,
+                    borderRadius: '2px 2px 0 0',
+                    zIndex: 2,
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+                  }} />
+                  
+                  {/* Kiss base - teardrop/cone shape */}
+                  <div style={{
+                    width: '100%',
+                    height: '75%',
+                    background: cell.type.color,
+                    borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
+                    position: 'relative',
+                    boxShadow: selectedCell?.row === rowIndex && selectedCell?.col === colIndex
+                      ? '0 0 20px rgba(255,215,0,0.6), inset -5px -5px 10px rgba(0,0,0,0.3), inset 5px 5px 10px rgba(255,255,255,0.3)'
+                      : 'inset -5px -5px 10px rgba(0,0,0,0.3), inset 5px 5px 10px rgba(255,255,255,0.2)',
+                    border: selectedCell?.row === rowIndex && selectedCell?.col === colIndex
+                      ? '3px solid #FFD700'
+                      : '2px solid rgba(255,255,255,0.3)'
                   }}>
-                    {[...Array(3)].map((_, i) => (
-                      <div
-                        key={i}
-                        style={{
-                          width: 'clamp(6px, 1.5vw, 8px)',
-                          height: 'clamp(6px, 1.5vw, 8px)',
-                          background: '#5D4037',
-                          borderRadius: '50%'
-                        }}
-                      />
-                    ))}
+                    {/* Foil wrapper effect */}
+                    <div style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: `linear-gradient(135deg, 
+                        ${cell.type.wrapper}00 0%, 
+                        ${cell.type.wrapper}40 30%, 
+                        ${cell.type.wrapper}20 50%, 
+                        ${cell.type.wrapper}40 70%, 
+                        ${cell.type.wrapper}00 100%)`,
+                      borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
+                      mixBlendMode: 'overlay'
+                    }} />
+                    
+                    {/* Hershey's logo placeholder (small dot) */}
+                    <div style={{
+                      position: 'absolute',
+                      top: '50%',
+                      left: '50%',
+                      transform: 'translate(-50%, -50%)',
+                      width: '30%',
+                      height: '20%',
+                      background: cell.type.wrapper,
+                      borderRadius: '50%',
+                      opacity: 0.7,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: 'clamp(6px, 1vw, 8px)',
+                      fontWeight: 'bold',
+                      color: cell.type.color,
+                      boxShadow: '0 1px 3px rgba(0,0,0,0.3)'
+                    }}>
+                      H
+                    </div>
+                    
+                    {/* Stripes for cookies & cream */}
+                    {cell.type.stripes && (
+                      <>
+                        <div style={{
+                          position: 'absolute',
+                          top: '30%',
+                          left: '20%',
+                          width: '60%',
+                          height: '3px',
+                          background: '#8B4513',
+                          borderRadius: '2px',
+                          opacity: 0.6,
+                          transform: 'rotate(-10deg)'
+                        }} />
+                        <div style={{
+                          position: 'absolute',
+                          top: '50%',
+                          left: '15%',
+                          width: '70%',
+                          height: '3px',
+                          background: '#8B4513',
+                          borderRadius: '2px',
+                          opacity: 0.6,
+                          transform: 'rotate(5deg)'
+                        }} />
+                      </>
+                    )}
                   </div>
-                )}
+                </div>
               </div>
             ))
           )}
@@ -670,36 +797,75 @@ function App() {
             border: '5px solid rgba(255,215,0,0.5)',
             overflow: 'hidden'
           }}>
-            {/* Diwali sparkles in modal */}
+            {/* Diwali sparkles in modal - more prominent */}
             <div style={{
               position: 'absolute',
-              top: '10px',
-              left: '10px',
-              fontSize: '24px',
-              animation: 'sparkle 1.5s infinite'
-            }}>✨</div>
-            <div style={{
-              position: 'absolute',
-              top: '10px',
-              right: '10px',
-              fontSize: '24px',
+              top: '15px',
+              left: '15px',
+              fontSize: '36px',
               animation: 'sparkle 1.5s infinite',
-              animationDelay: '0.5s'
+              filter: 'drop-shadow(0 0 10px rgba(255, 215, 0, 0.9))'
             }}>✨</div>
             <div style={{
               position: 'absolute',
-              bottom: '20px',
-              left: '20px',
-              fontSize: '20px',
-              animation: 'flicker 2s infinite'
+              top: '15px',
+              right: '15px',
+              fontSize: '36px',
+              animation: 'sparkle 1.5s infinite',
+              animationDelay: '0.5s',
+              filter: 'drop-shadow(0 0 10px rgba(255, 215, 0, 0.9))'
+            }}>✨</div>
+            <div style={{
+              position: 'absolute',
+              top: '50%',
+              left: '10px',
+              fontSize: '32px',
+              animation: 'sparkle 1.8s infinite',
+              animationDelay: '0.3s',
+              filter: 'drop-shadow(0 0 8px rgba(255, 215, 0, 0.8))'
+            }}>✨</div>
+            <div style={{
+              position: 'absolute',
+              top: '50%',
+              right: '10px',
+              fontSize: '32px',
+              animation: 'sparkle 1.8s infinite',
+              animationDelay: '0.7s',
+              filter: 'drop-shadow(0 0 8px rgba(255, 215, 0, 0.8))'
+            }}>✨</div>
+            <div style={{
+              position: 'absolute',
+              bottom: '30px',
+              left: '30px',
+              fontSize: '32px',
+              animation: 'flicker 2s infinite',
+              filter: 'drop-shadow(0 0 15px rgba(255, 165, 0, 1))'
             }}>🪔</div>
             <div style={{
               position: 'absolute',
-              bottom: '20px',
-              right: '20px',
-              fontSize: '20px',
-              animation: 'flicker 2s infinite'
+              bottom: '30px',
+              right: '30px',
+              fontSize: '32px',
+              animation: 'flicker 2s infinite',
+              filter: 'drop-shadow(0 0 15px rgba(255, 165, 0, 1))'
             }}>🪔</div>
+            <div style={{
+              position: 'absolute',
+              top: '40%',
+              left: '5px',
+              fontSize: '28px',
+              animation: 'float 3s ease-in-out infinite',
+              filter: 'drop-shadow(0 0 12px rgba(255, 200, 0, 0.9))'
+            }}>🏮</div>
+            <div style={{
+              position: 'absolute',
+              top: '40%',
+              right: '5px',
+              fontSize: '28px',
+              animation: 'float 3s ease-in-out infinite',
+              animationDelay: '1s',
+              filter: 'drop-shadow(0 0 12px rgba(255, 200, 0, 0.9))'
+            }}>🏮</div>
             
             <div style={{
               fontSize: 'clamp(60px, 15vw, 100px)',
@@ -709,11 +875,13 @@ function App() {
               🎉
             </div>
             <div style={{
-              fontSize: 'clamp(1rem, 3vw, 1.2rem)',
+              fontSize: 'clamp(1.2rem, 4vw, 1.6rem)',
               color: '#FFD700',
               fontWeight: '700',
-              textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
-              marginBottom: '10px'
+              textShadow: '2px 2px 4px rgba(0,0,0,0.4), 0 0 20px rgba(255, 215, 0, 0.9)',
+              marginBottom: '15px',
+              animation: 'pulse 1.5s infinite',
+              filter: 'drop-shadow(0 0 15px rgba(255, 215, 0, 0.8))'
             }}>
               🪔 Happy Diwali! 🪔
             </div>
